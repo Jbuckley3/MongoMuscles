@@ -4,6 +4,8 @@ import { getOneExercise, removeExercise } from '../../api/exercise'
 import LoadingScreen from '../shared/LoadingScreen'
 import { Container, Card, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import messages from '../shared/AutoDismissAlert/messages'
+
 
 const ExerciseShow = (props) => {
     const { exerciseId } = useParams()
@@ -21,7 +23,7 @@ const ExerciseShow = (props) => {
         .catch(err => {
             msgAlert({
                 heading: 'Oh no!', 
-                message: 'something went wrong', 
+                message: 'messages.generalError', 
                 variant: 'danger'
         })
         })
@@ -37,7 +39,7 @@ const ExerciseShow = (props) => {
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',
-                    message: 'We deleted the exercises!',
+                    message: messages.deleteExerciseSuccess,
                     variant: 'success'
                 })
             })
@@ -47,7 +49,7 @@ const ExerciseShow = (props) => {
             .catch(err => {
                 msgAlert({
                     heading: 'Oh no!',
-                    message: 'Something went wrong',
+                    message: messages.generalError,
                     variant: 'danger'
                 })
             })

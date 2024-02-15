@@ -1,61 +1,51 @@
-import { useState, useEffect } from "react"
-import { getAllExercises } from "../../api/exercise"
-import LoadingScreen from "../shared/LoadingScreen"
+import React, { useState, useEffect } from "react";
+import { getAllExercises } from "../../api/exercise";
+import LoadingScreen from "../shared/LoadingScreen";
 
-import { Card } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import messages from '../shared/AutoDismissAlert/messages'
 
 
-//Styling object
+// Styling object
 const cardContainerLayout = {
-    display: 'flex', 
-    flexFlow: 'row wrap', 
+    display: 'flex',
+    flexFlow: 'row wrap',
     justifyContent: 'center'
-}
+};
 
 const ExercisesIndex = (props) => {
-    const [exercises, setExercises] = useState(null)
-    const [error, setError] = useState(false)
+    const [exercises, setExercises] = useState(null);
+    const [error, setError] = useState(false);
 
-    const { msgAlert } = props
+    const { msgAlert } = props;
 
-
-	useEffect(() => {
-		getAllExercises()
-			// .then(res => console.log('pets from axios call: \n', res.data.exercises))
-			.then(res => {
-				console.log('use Effect hook ran', res.data.exercises)
-				setExercises(res.data.exercises)
-			})
-            .then(() => {
-                msgAlert({
-                    heading: 'Success!', 
-                    message: 'Got all the exercises!', 
-                    variant: 'success'
-                })
-               
+    useEffect(() => {
+        getAllExercises()
+            .then(res => {
+                console.log('useEffect hook ran', res.data.exercises);
+                setExercises(res.data.exercises);
             })
-			.catch(error => {
+            .catch(error => {
                 msgAlert({
-                    heading: 'Oh no!', 
-                    message: 'something went wrong', 
+                    heading: 'Oh no!',
+                    message: messages.generalError,
                     variant: 'danger'
-            })
-            setError(true)
-        });
-	}, [])
-    // console.log('the exercises in ExercisesIndex /n', exercises)
+                });
+                setError(true);
+            });
+    }, []);
 
     if (error) {
-        return <LoadingScreen />
+        return <LoadingScreen />;
     }
 
     if (!exercises) {
-        return <LoadingScreen />
+        return <LoadingScreen />;
     }
 
     const exerciseCards = exercises.map(exercise => (
-        <Card key={exercise.id} style={{ width: '30%', margin: 5}} >
+        <Card key={exercise.id} style={{ width: '30%', margin: 5 }}>
             <Card.Header>{exercise.name}</Card.Header>
             <Card.Body>
                 <Card.Text>
@@ -63,20 +53,20 @@ const ExercisesIndex = (props) => {
                         view
                     </Link>
                 </Card.Text>
-                { exercise.owner ?
+                {exercise.owner ?
                     <Card.Footer>owner: {exercise.owner.email} </Card.Footer>
                     :
                     null
                 }
             </Card.Body>
         </Card>
-    ))
+    ));
 
     return (
-        <div className="container-md" style={ cardContainerLayout }>
-            { exerciseCards }
+        <div className="container-md" style={cardContainerLayout}>
+            {exerciseCards}
         </div>
-    )
- }
+    );
+};
 
-export default ExercisesIndex
+export default ExercisesIndex;

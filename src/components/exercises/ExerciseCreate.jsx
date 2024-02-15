@@ -2,6 +2,8 @@ import { useState } from 'react'
 import ExerciseForm from '../shared/ExerciseForm'
 import { useNavigate } from 'react-router-dom'
 import { createExercise } from '../../api/exercise'
+import messages  from '../shared/AutoDismissAlert/messages'
+
 
 const ExerciseCreate = (props) => {
     // pull out our props
@@ -48,18 +50,18 @@ const ExerciseCreate = (props) => {
         e.preventDefault()
 
         createExercise(user, exercise)
-            .then(res => { navigate(`/exercises/${res.data.exercise._id}`)})
+            .then(res => { navigate(`/exercises/${res.data.exerciseid}`)})
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',
-                    message: 'Created the exercise!',
+                    message: messages.createExerciseSuccess,
                     variant: 'success'
                 })
             })
             .catch(err => {
                 msgAlert({
                     heading: 'Oh no!',
-                    message: 'Something went wrong',
+                    message: messages.generalError,
                     variant: 'danger'
                 })
             })
