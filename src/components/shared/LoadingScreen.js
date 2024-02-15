@@ -1,4 +1,4 @@
-import { spinner } from 'react-bootstrap'
+import { Spinner } from 'react-bootstrap'
 
 const LoadingScreen = () => (
     <div className='container-sn' style={{ textAlign: 'center'}}>
