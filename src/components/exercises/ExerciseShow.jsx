@@ -7,7 +7,7 @@ import { Container, Card } from 'react-bootstrap'
 const ExerciseShow = (props) => {
     const { exerciseId } = useParams()
     const { user, msgAlert } = props
-    // console.log('these are props in petShow', props)
+    // console.log('these are props in ExerciseShow', props)
     // console.log('this is the id param in ExerciseShow', exerciseId)
    
    const [exercise, setExercise] = useState(null)

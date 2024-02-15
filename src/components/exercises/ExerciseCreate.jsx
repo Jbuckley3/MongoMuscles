@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import ExerciseForm from '../shared/ExerciseForm'
+import { useNavigate } from 'react-router-dom'
+import { createExercise } from '../../api/exercise'
 
 const ExerciseCreate = (props) => {
     // pull out our props
     const { user, msgAlert } = props
 
+    const navigate = useNavigate()
     // build our state object
     const [exercise, setExercise] = useState({
         name: '',
@@ -40,13 +43,36 @@ const ExerciseCreate = (props) => {
             }
         })
     }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        createExercise(user, exercise)
+            .then(res => { navigate(`/exercises/${res.data.exercise.id}`)})
+            .then(() => {
+                msgAlert({
+                    heading: 'Oh Yeah!',
+                    message: 'Created the exercise!',
+                    variant: 'success'
+                })
+            })
+            .catch(err => {
+                msgAlert({
+                    heading: 'Oh no!',
+                    message: 'Something went wrong',
+                    variant: 'danger'
+                })
+            })
+    }
+
+
     console.log('the exercise inside create', exercise)
 
     return (
         <ExerciseForm
             exercise={exercise}
             handleChange={onChange}
-            handleSubmit={() => {console.log('handles submit')}}
+            handleSubmit={onSubmit}
             heading="Add a new exercise!"
         />
     )
