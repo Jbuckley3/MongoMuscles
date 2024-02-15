@@ -24,13 +24,13 @@ const ExercisesIndex = (props) => {
 		getAllExercises()
 			// .then(res => console.log('pets from axios call: \n', res.data.exercises))
 			.then(res => {
-				console.log('use Effect hook ran')
+				console.log('use Effect hook ran', res.data.exercises)
 				setExercises(res.data.exercises)
 			})
             .then(() => {
                 msgAlert({
                     heading: 'Success!', 
-                    message: 'Got all the pets!', 
+                    message: 'Got all the exercises!', 
                     variant: 'success'
                 })
                
@@ -52,16 +52,16 @@ const ExercisesIndex = (props) => {
 
     if (!exercises) {
         return <LoadingScreen />
-    } else if (PermissionStatus.length === 0) {
-        return <p>No exercises yet, go add some!</p>
     }
 
     const exerciseCards = exercises.map(exercise => (
         <Card key={exercise.id} style={{ width: '30%', margin: 5}} >
-            <Card.Header>{exercise.fullTitle}</Card.Header>
+            <Card.Header>{exercise.name}</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    {exercise.name}
+                    <Link to={`/exercises/${exercise.id}`} className='btn btn-info'>
+                        view
+                    </Link>
                 </Card.Text>
                 { exercise.owner ?
                     <Card.Footer>owner: {exercise.owner.email} </Card.Footer>

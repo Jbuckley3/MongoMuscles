@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react"
-import { getAllExercises } from "../api/exercise"
 import ExercisesIndex from "./exercises/ExercisesIndex"
 
 const Home = (props) => {
-	const { msgAlert, user } = props
+	const { msgAlert } = props
 	//	console.log('props in home', props)
 
 	// const [exercises, setExercises] = useState(null)
