@@ -59,7 +59,7 @@ const ExercisesIndex = (props) => {
             <Card.Header>{exercise.name}</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    <Link to={`/exercises/${exercise.id}`} className='btn btn-info'>
+                    <Link to={`/exercises/${exercise._id}`} className='btn btn-info'>
                         view
                     </Link>
                 </Card.Text>

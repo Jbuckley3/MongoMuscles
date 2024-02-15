@@ -48,7 +48,7 @@ const ExerciseCreate = (props) => {
         e.preventDefault()
 
         createExercise(user, exercise)
-            .then(res => { navigate(`/exercises/${res.data.exercise.id}`)})
+            .then(res => { navigate(`/exercises/${res.data.exercise._id}`)})
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',
