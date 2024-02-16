@@ -1,20 +1,24 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getOneExercise, removeExercise } from '../../api/exercise'
+import { getOneExercise, removeExercise, updateExercise } from '../../api/exercise'
 import LoadingScreen from '../shared/LoadingScreen'
 import { Container, Card, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import messages from '../shared/AutoDismissAlert/messages'
+import EditExerciseModal from './EditExerciseModal'
 
 
 const ExerciseShow = (props) => {
     const { exerciseId } = useParams()
     const { user, msgAlert } = props
-    // console.log('these are props in ExerciseShow', props)
-    // console.log('this is the id param in ExerciseShow', exerciseId)
    
    const [exercise, setExercise] = useState(null)
-    // this gives us a function we can use to navigate via react-router
+   const [editModalShow, setEditModalShow] = useState(false)
+   // this is a boolean, that we can switch between to trigger a page re-render
+   const [updated, setUpdated] = useState(false)
+
+   
+   // this gives us a function we can use to navigate via react-router
     const navigate = useNavigate()
 
    useEffect(() => {
@@ -27,7 +31,7 @@ const ExerciseShow = (props) => {
                 variant: 'danger'
         })
         })
-   }, [])
+   }, [updated])
    // console.log('the exercise in showExercise', exercise)
 
     // this is an api call function, which means we'll need to handle the promise chain.
@@ -76,7 +80,11 @@ const ExerciseShow = (props) => {
                         exercise.owner && user && exercise.owner._id === user._id
                         ?
                         <>
-                            <Button>
+                            <Button
+                                className='m-2'
+                                variant='warning'
+                                onClick={() => setEditModalShow(true)}
+                            >
                                 Edit Exercise
                             </Button>
                             <Button
@@ -97,7 +105,17 @@ const ExerciseShow = (props) => {
                 </Card.Footer>
             </Card>
         </Container>
-    </>    )
+        <EditExerciseModal 
+                user={user}
+                show={editModalShow}
+                updateExercise={updateExercise}
+                msgAlert={msgAlert}
+                handleClose={() => setEditModalShow(false)}
+                exercise={exercise}
+                triggerRefresh={() => setUpdated(prev => !prev)}
+            />             
+    </>    
+    )
 }
 
 export default ExerciseShow

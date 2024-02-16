@@ -13,44 +13,28 @@ const ExerciseCreate = (props) => {
     // build our state object
     const [exercise, setExercise] = useState({
         name: '',
-        descripton: '',
-        duration: '',
-        date: '',
+        description: '',
     })
 
     const onChange = (e) => {
-        e.persist()
-
+        e.persist();
         setExercise(prevExercise => {
-            const updatedName = e.target.name
-            let updatedValue = e.target.value
-
-            if (e.target.type === 'number') {
-                updatedValue = parseInt(e.target.value)
-            }
-
-            if (updatedName === 'adoptable' && e.target.checked) {
-                updatedValue = true
-            } else if (updatedName === 'adoptable' && !e.target.checked) {
-                updatedValue = false
-            }
-
-            // this will actually buiild our exercise object
-            // we grab an attribute name, and assign the respective value
-            const updatedExercise = { [updatedName] : updatedValue }
-
-            // to keep all the old stuff, and add newly typed letter/numbers etc
+            const updatedName = e.target.name;
+            const updatedValue = e.target.value;
+            const updatedExercise = { [updatedName]: updatedValue };
+    
             return {
-                ...prevExercise, ...updatedExercise
-            }
-        })
-    }
+                ...prevExercise,
+                ...updatedExercise
+            };
+        });
+    };
 
     const onSubmit = (e) => {
         e.preventDefault()
 
         createExercise(user, exercise)
-            .then(res => { navigate(`/exercises/${res.data.exerciseid}`)})
+            .then(res => { navigate(`/Exercises/${res.data.exercise._id}`)})
             .then(() => {
                 msgAlert({
                     heading: 'Oh Yeah!',

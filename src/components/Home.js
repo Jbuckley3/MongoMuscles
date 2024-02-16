@@ -1,4 +1,4 @@
-import ExercisesIndex from "./exercises/ExercisesIndex"
+import ExercisesIndex from "./Exercises/ExercisesIndex"
 
 const Home = (props) => {
 	const { msgAlert } = props

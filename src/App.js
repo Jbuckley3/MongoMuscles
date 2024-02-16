@@ -12,8 +12,8 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
-import ExerciseShow from './components/exercises/ExerciseShow'
-import ExerciseCreate from './components/exercises/ExerciseCreate'
+import ExerciseShow from './components/Exercises/ExerciseShow'
+import ExerciseCreate from './components/Exercises/ExerciseCreate'
 
 
 const App = () => {
