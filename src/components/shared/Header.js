@@ -49,8 +49,8 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='primary' variant='dark' expand='md'>
-		<Navbar.Brand className='m-2'>
+	<Navbar variant='dark' expand='md' style={{ backgroundColor: '#5c6bc0' }}>
+	<Navbar.Brand className='m-2'>
             <Link to='/' style={linkStyle}>
                 MongoMuscles
             </Link>
