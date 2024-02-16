@@ -11,7 +11,7 @@ Consumes the MongoMuscles API found [here](https://github.com/Jbuckley3/MongoMus
 
 #### As a user:
 
-- I want to sign up for Mongomuscles
+- I want to sign up for MongoMuscles
 - I want to sign into my account 
 - I want to change my password
 - I want to sign out of my account
