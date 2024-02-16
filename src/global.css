@@ -1,0 +1,16 @@
+/* global.css */
+
+:root {
+    --background-opacity: 0.7;
+  }
+  
+  body {
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: var(--background-opacity);
+    background-color: blue;
+  }
+  

@@ -14,7 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ExerciseShow from './components/Exercises/ExerciseShow'
 import ExerciseCreate from './components/Exercises/ExerciseCreate'
-
+import './global.css'
 
 const App = () => {
 
