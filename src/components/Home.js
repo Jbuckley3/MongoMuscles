@@ -9,9 +9,8 @@ const Home = (props) => {
 
 	return (
 		<>
-			<h2>Home Page</h2>
-	{/* 		{ user !== null ? <h5>Hello {user.email}</h5> : null}
-			{pets == null ? <LoadingScreen /> : <p>{exercises[0].name}</p>} */}
+			<h2  className="centered-text">All Exercises</h2>
+
 			<ExercisesIndex msgAlert={msgAlert} />
 		</>
 	)

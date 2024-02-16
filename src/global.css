@@ -5,12 +5,17 @@
   }
   
   body {
-    background-image: url('');
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     opacity: var(--background-opacity);
-    background-color: rgb(191, 191, 250);
+    background-color: rgb(114, 114, 245);
   }
   
+
+  .centered-text {
+    text-align: center;
+    
+  }

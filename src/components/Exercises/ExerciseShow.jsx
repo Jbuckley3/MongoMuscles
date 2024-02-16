@@ -17,8 +17,6 @@ const ExerciseShow = (props) => {
    // this is a boolean, that we can switch between to trigger a page re-render
    const [updated, setUpdated] = useState(false)
 
-   
-   // this gives us a function we can use to navigate via react-router
     const navigate = useNavigate()
 
    useEffect(() => {
@@ -32,14 +30,10 @@ const ExerciseShow = (props) => {
         })
         })
    }, [updated])
-   // console.log('the exercise in showExercise', exercise)
 
-    // this is an api call function, which means we'll need to handle the promise chain.
-    // this means sending appropriate messages, as well as navigating upon success
     const deleteExercise = () => {
-        // we want to remove the exercise
+    
         removeExercise(user, exercise._id)
-            // display a success message
             .then(() => {
                 msgAlert({
                     heading: 'Success!',
@@ -47,9 +41,7 @@ const ExerciseShow = (props) => {
                     variant: 'success'
                 })
             })
-            // navigate the user back to the index page(Home)(/)
             .then(() => navigate('/'))
-            // if an error occurs, tell the user
             .catch(err => {
                 msgAlert({
                     heading: 'Oh no!',
