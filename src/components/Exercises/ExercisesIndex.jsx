@@ -5,7 +5,7 @@ import LoadingScreen from "../shared/LoadingScreen";
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import messages from '../shared/AutoDismissAlert/messages';
-import '/Users/joshbuckley/sei/ga-code/exercise-app/clientMongoMuscles/src/global.css'
+import '../../global.css'
 
 // Styling object
 const cardContainerLayout = {
