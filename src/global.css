@@ -11,6 +11,6 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     opacity: var(--background-opacity);
-    background-color: blue;
+    background-color: rgb(191, 191, 250);
   }
   
