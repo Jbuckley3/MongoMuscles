@@ -27,6 +27,26 @@ const EditExerciseModal = (props) => {
     
     const onSubmit = (e) => {
         e.preventDefault()
+         // make the API call
+         updateExercise(user, exercise)
+         // close the modal
+         .then(() => handleClose())
+         .then(() => {
+             msgAlert({
+                 heading: 'Oh Yeah!',
+                 message: messages.updateExerciseSuccess,
+                 variant: 'success'
+             })
+         })
+         .then(() => triggerRefresh())
+         // send error message if applicable
+         .catch(() => {
+             msgAlert({
+                 heading: 'Oh no!',
+                 message: messages.generalError,
+                 variant: 'danger'
+             })
+         })
     }
 
 
