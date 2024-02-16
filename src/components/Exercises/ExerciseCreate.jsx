@@ -37,7 +37,7 @@ const ExerciseCreate = (props) => {
             .then(res => { navigate(`/Exercises/${res.data.exercise._id}`)})
             .then(() => {
                 msgAlert({
-                    heading: 'Oh Yeah!',
+                    heading: 'Success!',
                     message: messages.createExerciseSuccess,
                     variant: 'success'
                 })

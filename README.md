@@ -1,7 +1,7 @@
 ## MongoMuscles 
 MongoMuscles is a full-stack fitness application designed to guide your workout journey. Whether you're a fitness enthusiast or just starting, MongoMuscles helps you discover exercises to meet your fitness goals.
 
-URL: https://mongomuscles.netlify.app/
+URL: https://main--mongomuscles.netlify.app/
 
 Consumes the MongoMuscles API found [here](https://github.com/Jbuckley3/MongoMusclesAPI)
 

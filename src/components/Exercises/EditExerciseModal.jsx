@@ -33,7 +33,7 @@ const EditExerciseModal = (props) => {
          .then(() => handleClose())
          .then(() => {
              msgAlert({
-                 heading: 'Oh Yeah!',
+                 heading: 'Success!',
                  message: messages.updateExerciseSuccess,
                  variant: 'success'
              })

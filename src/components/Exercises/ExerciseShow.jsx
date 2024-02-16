@@ -37,12 +37,12 @@ const ExerciseShow = (props) => {
     // this is an api call function, which means we'll need to handle the promise chain.
     // this means sending appropriate messages, as well as navigating upon success
     const deleteExercise = () => {
-        // we want to remove the pet
+        // we want to remove the exercise
         removeExercise(user, exercise._id)
             // display a success message
             .then(() => {
                 msgAlert({
-                    heading: 'Oh Yeah!',
+                    heading: 'Success!',
                     message: messages.deleteExerciseSuccess,
                     variant: 'success'
                 })
