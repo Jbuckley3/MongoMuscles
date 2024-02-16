@@ -45,7 +45,7 @@ const ExercisesIndex = (props) => {
     }
 
     const exerciseCards = exercises.map(exercise => (
-        <Card key={exercise.id} style={{ width: '30%', margin: 5 }}>
+        <Card key={exercise._id} style={{ width: '30%', margin: 5 }}>
             <Card.Header>{exercise.name}</Card.Header>
             <Card.Body>
                 <Card.Text>
